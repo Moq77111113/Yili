@@ -17,4 +17,6 @@
 		</button>
 	</div>
 </div>
-<slot />
+<main class="p-2">
+	<slot />
+</main>

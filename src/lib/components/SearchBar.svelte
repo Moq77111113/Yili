@@ -1,0 +1,43 @@
+<script lang="ts">
+	import { ZDOTDIR } from '$env/static/private';
+
+	export let onChange: (v: string) => void;
+	let open: boolean = false;
+	let timer: NodeJS.Timeout;
+
+	const debounce = (e: KeyboardEvent) => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			onChange((e.target as HTMLInputElement).value);
+		}, 500);
+	};
+	const toggle = () => {
+		open = !open;
+	};
+</script>
+
+<div class="flex flex-row items-center" class:gap-2={open === true}>
+	<input
+		class="input input-sm bg-gray-900 text-gray-200 border-none focus:outline-none rounded-xl {open
+			? 'w-[200px] visible'
+			: 'invisible w-0 '} transition-all duration-300"
+		type="search"
+		name="search"
+		placeholder="Rechercher"
+		on:keyup={debounce}
+	/>
+	<button
+		class="bg-gray-900 rounded-full w-8 h-8 {!open ? '-translate-x-2/4' : 'translate-x-0'}"
+		on:click={toggle}
+		><svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="white"
+			viewBox="0 0 24 24"
+			class="inline-block w-5 h-5 text-white"
+		>
+			<path
+				d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 19.585938 21.585938 C 20.137937 22.137937 21.033938 22.137938 21.585938 21.585938 C 22.137938 21.033938 22.137938 20.137938 21.585938 19.585938 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"
+			/></svg
+		></button
+	>
+</div>
