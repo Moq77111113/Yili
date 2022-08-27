@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { ZDOTDIR } from '$env/static/private';
 
 	export let onChange: (v: string) => void;
 	let open: boolean = false;
