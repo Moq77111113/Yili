@@ -1,13 +1,13 @@
 <script lang="ts">
-	export let onChange: (v: string) => void;
 	let open: boolean = false;
 	let timer: NodeJS.Timeout;
+	export let onChange: (v: string) => void;
 
-	const debounce = (e: KeyboardEvent) => {
+	const debounce = (e: Event) => {
 		clearTimeout(timer);
 		timer = setTimeout(() => {
 			onChange((e.target as HTMLInputElement).value);
-		}, 500);
+		}, 300);
 	};
 	const toggle = () => {
 		open = !open;
@@ -22,7 +22,7 @@
 		type="search"
 		name="search"
 		placeholder="Rechercher"
-		on:keyup={debounce}
+		on:input={debounce}
 	/>
 	<button
 		class="bg-gray-900 rounded-full w-8 h-8 {!open ? '-translate-x-2/4' : 'translate-x-0'}"

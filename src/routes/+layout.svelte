@@ -2,7 +2,7 @@
 	import '$lib/global.css';
 </script>
 
-<div class="navbar bg-black">
+<nav class="navbar bg-black">
 	<div class="flex-1">
 		<a href="/" class="btn btn-ghost normal-case text-xl text-white cursor-pointer">Yili</a>
 	</div>
@@ -16,7 +16,7 @@
 			>
 		</button>
 	</div>
-</div>
+</nav>
 <main class="p-2">
 	<slot />
 </main>
