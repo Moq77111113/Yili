@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	export let onChange: (v: string) => void;
 	let open: boolean = false;
 	let timer: NodeJS.Timeout;

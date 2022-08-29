@@ -2,10 +2,10 @@
 	import type { MovieResult } from '$lib/types/movie.interface';
 	import Movies from '$lib/components/Movies.svelte';
 	import SearchBar from '$lib/components/SearchBar.svelte';
-import { goto } from '$app/navigation';
+	import { goto } from '$app/navigation';
 	export let data: MovieResult;
 	export let onSearch = (v: string) => {
-		goto(`?q=${v}`)
+		goto(`?q=${v}`);
 	};
 </script>
 
