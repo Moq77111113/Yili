@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="card w-42 bg-base-100 shadow-xl flex-col rounded-3xl 
+	class="card w-42 bg-base-100 shadow-xl flex flex-col rounded-3xl  justify-between
 	hover:rounded-xl hover:shadow-gray-600 cursor-pointer
 	transition-all duration-300 ease-linear"
 >
@@ -14,7 +14,7 @@
 			<img
 				src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 				alt={movie.title}
-				class="text-xs"
+				class="text-xs h-[300px] lg:h-[500px]"
 			/>
 		</figure>
 		<div class="card-body">
